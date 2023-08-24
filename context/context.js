@@ -12,7 +12,12 @@ const Context = (props) => {
 		data: [],
 		error: ''
 	});
-	const [favorites, setFavorites] = useState({})
+	const [favorites, setFavorites] = useState([]);
+	const [basket, setBasket] = useState([])
+
+	const addBasket = (product) => {
+		setBasket(prev => [...prev, product])
+	}
 
 	const setProductForFavorites = (id) => {
 		if (favorites.some(item => item.id === id)) {
@@ -68,6 +73,8 @@ const Context = (props) => {
 		showMore,
 		displayedProducts,
 		setProductForFavorites,
+		basket,
+		addBasket
 	
 		
 	}

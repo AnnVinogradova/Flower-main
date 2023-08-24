@@ -1,6 +1,14 @@
-import { chakra, Box, Flex, Input, Link, Text, Heading } from '@chakra-ui/react';
+import { chakra, Box, Flex, Input, Link, Text, Heading, Button } from '@chakra-ui/react';
+import { useContext, useState } from 'react';
+import { CustomContext } from '../../context/context';
+import BasketEmpty from '../BasketEmpty/BasketEmpty.js'
 
 export default function Header() {
+
+	const {basket} = useContext(CustomContext)
+
+	const [show, setShow] = useState(false)
+
 	return (
 		<Box backgroundColor={'#03453B'} height={"100"}  display={"flex"} justifyContent={"space-between"} alignItems={"center"} flexDirection={"column"} pt={6}>
 			<Flex>
@@ -75,7 +83,13 @@ export default function Header() {
 									<circle cx="22.5" cy="5.5" r="4.5" fill="#AE8646" />
 								</chakra.svg>
 							</Link>
-							<Link href="#">
+							<Link onClick={()=>{
+								if(basket.length){
+									window.location.href = "/basket"
+								} else {
+									setShow(true)
+								}
+							}} position="relative">
 								<chakra.svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="26"
@@ -91,11 +105,13 @@ export default function Header() {
 										strokeLinejoin="round"
 									/>
 								</chakra.svg>
+								<Text display="flex" justifyContent="center" alignItems="center" color="rgba{'60, 60, 60'}" position="absolute" top={4} backgroundColor="rgba(202,218,186)" borderRadius={50} width={6} height={6} left={4}>{basket.length}</Text>
 							</Link>
 						</Flex>
 					</Flex>
 				</Box>
 			</Flex>
+			<BasketEmpty show={show} setShow={setShow}/>
 		</Box>
 	);
 
