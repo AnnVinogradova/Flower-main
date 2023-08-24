@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
 import Instagram from '../../components/Instagram/Instagram.js'
 import HowWork from '../../components/HowWork/HowWork.js'
-import { Heading, Image, Text, Box, Flex, Button } from '@chakra-ui/react';
+import { Image, Text, Box, Flex, Button } from '@chakra-ui/react';
 import {
 	Breadcrumb,
 	BreadcrumbItem,

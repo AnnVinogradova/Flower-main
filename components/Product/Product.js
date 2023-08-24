@@ -4,7 +4,7 @@ import { CustomContext } from '../../context/context';
 
 export default function Product() {
 
-	const { products, showMore, displayedProducts, handleShowMore, setProductForFavorites, favorites  } = useContext(CustomContext);
+	const { products, showMore, displayedProducts, handleShowMore, setProductForFavorites } = useContext(CustomContext);
 
 	if (products.error.length) {
 		return <Text>{products.error.message}</Text>

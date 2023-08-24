@@ -12,7 +12,7 @@ const Context = (props) => {
 		data: [],
 		error: ''
 	});
-	const [favorites, setFavorites] = useState([])
+	const [favorites, setFavorites] = useState({})
 
 	const setProductForFavorites = (id) => {
 		if (favorites.some(item => item.id === id)) {
@@ -67,7 +67,8 @@ const Context = (props) => {
 		handleShowMore,
 		showMore,
 		displayedProducts,
-		setProductForFavorites
+		setProductForFavorites,
+	
 		
 	}
 
