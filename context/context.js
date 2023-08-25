@@ -46,6 +46,21 @@ const Context = (props) => {
 		)
 	}}
 
+	useEffect(() => {
+
+        if (localStorage.getItem('basket') !== null) {
+            setBasket(JSON.parse(localStorage.getItem('basket')))
+        }
+
+    }, [])
+
+
+    useEffect(() => {
+        localStorage.setItem('basket', JSON.stringify(basket))
+    }, [basket])
+
+
+
 	const changeGender = (value) => {
 		setGender(value)
 	}
