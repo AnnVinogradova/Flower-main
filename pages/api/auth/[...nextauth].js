@@ -1,6 +1,8 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from "next-auth/providers/google"
+import { JWT } from 'next-auth/jwt';
+import { secret } from 'next-auth/jwt';
 
 export const authOptions = {
 	providers: [
@@ -41,7 +43,10 @@ export const authOptions = {
 			}
 		  })
 		],
+		
 };
+
+
 const resf = NextAuth(authOptions);
 export default (...params) => {
 	const [req] = params;

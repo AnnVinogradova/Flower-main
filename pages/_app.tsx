@@ -5,6 +5,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { SessionProvider } from 'next-auth/react'
 import { Montserrat } from 'next/font/google'
 import Context from '../context/context.js'
+import HeaderFooter from '../components/Header/HeaderFooter.js'
 const montserrat = Montserrat({
 	weight: '500',
 	subsets: ['cyrillic'],
@@ -17,6 +18,7 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
 				<ChakraProvider>
 					<main className={montserrat.className}>
 						<Header />
+						<HeaderFooter/>
 						<Component {...pageProps} />
 						<Footer />
 					</main>

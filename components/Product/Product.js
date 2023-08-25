@@ -6,11 +6,10 @@ import Link from 'next/link'
 export default function Product() {
 
 	const { products, showMore, displayedProducts, handleShowMore, minusBasket, addBasket, basket, plusBasket } = useContext(CustomContext);
-
+	
 	if (products.error.length) {
 		return <Text>{products.error.message}</Text>
 	}
-
 
 	return <>
 		<Grid templateColumns="repeat(3, 1fr)" gap={4} ml={"10"}>

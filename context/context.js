@@ -14,6 +14,7 @@ const Context = (props) => {
 	});
 	
 	const [basket, setBasket] = useState([])
+	
 
 	const addBasket =  (product) => {
         setBasket(prev => [...prev, {
@@ -53,7 +54,8 @@ const Context = (props) => {
 	}}
 
     useEffect(() => {
-
+		
+	
         if (localStorage.getItem('basket') !== null) {
             setBasket(JSON.parse(localStorage.getItem('basket')))
         }
@@ -108,8 +110,7 @@ const Context = (props) => {
 		addBasket,
 		plusBasket,
 		minusBasket,
-		delBasket
-	
+		delBasket,
 		
 	}
 

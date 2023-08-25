@@ -1,17 +1,15 @@
-import { chakra, Box, Flex, Input, Text, Heading } from '@chakra-ui/react';
+import { Box, Flex, Input, Text, Heading, Button, Icon } from '@chakra-ui/react';
 import { useContext } from 'react';
 import { CustomContext } from '../../context/context';
 import Link from 'next/link'
 import HeaderFooter from '../Header/HeaderFooter'
-
+import { FaInstagram, FaVk, FaTelegram, FaWhatsapp } from 'react-icons/fa'
 
 export default function Header() {
 
-	const {basket} = useContext(CustomContext)
-	
 
 	return (
-		<Box  height={"100"}  display={"flex"} justifyContent={"space-between"} alignItems={"center"} flexDirection={"column"} pt={6} width="100%">
+		<Box height={"100"} display={"flex"} justifyContent={"space-between"} alignItems={"center"} flexDirection={"column"} pt={6} width="100%">
 			<Flex>
 				<Box >
 					<Flex>
@@ -36,78 +34,33 @@ export default function Header() {
 							</svg></Heading>
 						</Link>
 						<Box color={'black'}>
-						<Flex gap={20} ml={20}>
-						<Link href="/about">О магазине</Link>
-						<Link href="/delivery">Доставка</Link>
-						<Link href="/payment">Оплата</Link>
-						<Link href="/catalog">Каталог</Link>
-						<Box display={"flex"} gap={10}>
-							<Text fontWeight={"400"} fontSize={"16"} letterSpacing={"0.1em"} textTransform={"uppercase"}>Поиск</Text>
-							<Input width={250} border={"1px solid black"} height={8} />
+							<Flex gap={20} ml={20}>
+								<Link href="/about">О магазине</Link>
+								<Link href="/delivery">Доставка</Link>
+								<Link href="/payment">Оплата</Link>
+								<Link href="/catalog">Каталог</Link>
+								<Box display={"flex"} gap={"4"}>
+									<Link href="https://www.instagram.com">
+										<Icon as={FaInstagram} boxSize={6} />
+									</Link>
+									<Link href="https://www.vkontakte.com">
+										<Icon as={FaVk} boxSize={6} />
+									</Link>
+									<Link href="https://www.telegram.org">
+										<Icon as={FaTelegram} boxSize={6} />
+									</Link>
+									<Link href="https://www.whatsapp.com">
+										<Icon as={FaWhatsapp} boxSize={6} />
+									</Link>
+								</Box>
+							</Flex>
 						</Box>
-						</Flex>
-						</Box>
-						<Flex gap={2} ml={6}>
-							<Link href="#">
-								<chakra.svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="26"
-									height="26"
-									viewBox="0 0 26 26"
-									fill="none"
-								>
-									<path
-										d="M22 24V21.8889C22 20.7691 21.5522 19.6951 20.7552 18.9033C19.9582 18.1115 18.8772 17.6667 17.75 17.6667H9.25C8.12283 17.6667 7.04183 18.1115 6.2448 18.9033C5.44777 19.6951 5 20.7691 5 21.8889V24M17.75 9.22222C17.75 11.5541 15.8472 13.4444 13.5 13.4444C11.1528 13.4444 9.25 11.5541 9.25 9.22222C9.25 6.89035 11.1528 5 13.5 5C15.8472 5 17.75 6.89035 17.75 9.22222Z"
-										stroke="#EBEBEB"
-										strokeWidth="1.5"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-									/>
-									<circle cx="18.5" cy="5.5" r="4.5" fill="#AE8646" />
-								</chakra.svg>
-							</Link>
-							<Link href="#">
-								<chakra.svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="26"
-									height="26"
-									viewBox="0 0 26 26"
-									fill="none"
-								>
-									<path
-										d="M13.3306 8.03601L14.0073 9.45261L14.6841 8.03601C15.3911 6.5559 16.8899 5.75 18.7341 5.75C21.2059 5.75 23.2429 7.87253 23.2499 10.514C23.253 11.6769 22.7204 12.9976 21.8174 14.3761C20.9227 15.7419 19.7151 17.0878 18.486 18.2842C17.2599 19.4776 16.0305 20.5049 15.106 21.2347C14.6529 21.5924 14.2744 21.8775 14.0073 22.0745C13.7403 21.8775 13.3617 21.5922 12.9085 21.2343C11.9839 20.5041 10.754 19.4759 9.52707 18.2807C8.2971 17.0825 7.08808 15.7337 6.19125 14.3637C5.28622 12.9811 4.75011 11.6539 4.75011 10.4819C4.75011 7.85371 6.80632 5.75 9.28919 5.75C11.132 5.75 12.623 6.5548 13.3306 8.03601Z"
-										stroke="#EBEBEB"
-										strokeWidth="1.5"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-									/>
-									<circle cx="22.5" cy="5.5" r="4.5" fill="#AE8646" />
-								</chakra.svg>
-							</Link>
-							<Link href = "/basket" position="relative">
-								<chakra.svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="26"
-									height="26"
-									viewBox="0 0 26 26"
-									fill="none"
-								>
-									<path
-										d="M5.71436 10.0572L8.95245 5.71436H21.9048L25.1429 10.0572M5.71436 10.0572V25.2572C5.71436 25.8331 5.94179 26.3854 6.34663 26.7926C6.75147 27.1999 7.30055 27.4286 7.87309 27.4286H22.9842C23.5567 27.4286 24.1058 27.1999 24.5106 26.7926C24.9155 26.3854 25.1429 25.8331 25.1429 25.2572V10.0572M5.71436 10.0572H25.1429M19.7461 14.4001C19.7461 15.5519 19.2912 16.6565 18.4815 17.4709C17.6719 18.2854 16.5737 18.7429 15.4286 18.7429C14.2836 18.7429 13.1854 18.2854 12.3757 17.4709C11.5661 16.6565 11.1112 15.5519 11.1112 14.4001"
-										stroke="#EBEBEB"
-										strokeWidth="1.5"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-									/>
-								</chakra.svg>
-								<Text display="flex" justifyContent="center" alignItems="center" color="rgba{'60, 60, 60'}" position="relative" top={-2} backgroundColor="rgba(202,218,186)" borderRadius={50} width={6} height={6} left={4}>{basket.length}</Text>
-							</Link>
-						</Flex>
+						<Link href="/organizations" legacyBehavior>
+							<Button backgroundColor={"#b9956f"} marginTop="-10px" ml={"10"}>Оптовым клиентам</Button>
+						</Link>
 					</Flex>
 				</Box>
 			</Flex>
 		</Box>
 	);
-	
-
 }

@@ -8,11 +8,14 @@ import {
 	BreadcrumbItem,
 	BreadcrumbLink,
 } from '@chakra-ui/react'
+import { useContext } from 'react';
+import { CustomContext } from '../../context/context';
 
 export default function Basket() {
 	const router = useRouter();
 	const { id } = router.query;
 	const [product, setProduct] = useState(null);
+	const { addBasket } = useContext(CustomContext);
 
 
 	useEffect(() => {
@@ -50,7 +53,6 @@ export default function Basket() {
 				<Flex>
 					<Box mt={"10"} position="relative">
 						<Image src={`../${product.image}`} width={"640"} height={487} />
-						<Image src="/img/Peonies/1.png" style={{ position: 'absolute', top: 2, right: 2 }} />
 					</Box>
 			<Box ml={12} mt={"6"}>
 				<Text color="rgba(3, 69, 59, 1)" fontSize="36">
@@ -59,9 +61,7 @@ export default function Basket() {
 				<Text className="product__info-price" fontSize={"36"} color={"rgba(174, 134, 70, 1)"} mt={"12"}>
 					{product.price}₽
 				</Text>
-				<Button className="product__info-btn" colorScheme="blue" width="250" backgroundColor={"rgba(0, 85, 78, 1)"}>
-					Купить
-				</Button>
+				<Button type={"button"} onClick={() => addBasket(product)} width={290} mx="auto" backgroundColor="rgba(0, 85, 78)" marginTop={5} color="rgba(235, 235, 235)" >Заказать</Button>
 			</Box>
 		</Flex>
     </Box >
