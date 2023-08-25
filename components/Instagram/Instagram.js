@@ -1,4 +1,5 @@
-import { Box, Text, Image, Flex, Link } from "@chakra-ui/react";
+import { Box, Text, Image, Flex } from "@chakra-ui/react";
+import Link from 'next/link'
 
 export default function Instagram() {
 	return <>

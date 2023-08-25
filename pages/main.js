@@ -5,14 +5,14 @@ import Instagram from '../components/Instagram/Instagram.js'
 import { Box } from '@chakra-ui/react';
 import Best from '../components/Best/Best.js';
 
-export default function Main() {
-return <>
-<Box>
-	<HeaderMain/>
-	<Best/>
-	<Advantages/>
-	<HowWork/>
-	<Instagram/>
-</Box>
-</>;
-}
+  export default function Main() {
+	return <>
+	  <Box>
+		<HeaderMain/>
+		<Best/>
+		<Advantages/>
+		<HowWork/>
+		<Instagram/>
+	  </Box>
+	</>;
+  }

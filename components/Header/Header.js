@@ -1,18 +1,21 @@
-import { chakra, Box, Flex, Input, Link, Text, Heading } from '@chakra-ui/react';
-import { useContext, useState } from 'react';
+import { chakra, Box, Flex, Input, Text, Heading } from '@chakra-ui/react';
+import { useContext } from 'react';
 import { CustomContext } from '../../context/context';
+import Link from 'next/link'
+import { Global } from '@emotion/react';
+
 
 export default function Header() {
 
 	const {basket} = useContext(CustomContext)
-
-	const [show, setShow] = useState(false)
+	
 
 	return (
-		<Box backgroundColor={'#03453B'} height={"100"}  display={"flex"} justifyContent={"space-between"} alignItems={"center"} flexDirection={"column"} pt={6}>
+		<Box backgroundColor={'#03453B'} height={"100"}  display={"flex"} justifyContent={"space-between"} alignItems={"center"} flexDirection={"column"} pt={6} width="100%">
 			<Flex>
 				<Box >
 					<Flex>
+						
 						<Link href='/main'>
 							<Heading><svg xmlns="http://www.w3.org/2000/svg" width="200" height="47" viewBox="0 0 200 47" fill="none">
 								<path fillRule="evenodd" clipRule="evenodd" d="M124.889 21.3801C124.169 25.1689 121.773 26.8582 119.873 26.8582C117.97 26.8582 116.219 25.1689 116.939 21.3801C117.658 17.5913 120.055 15.902 121.954 15.902C123.857 15.9057 125.608 17.5913 124.889 21.3801ZM127.927 5.39678L126.684 11.9431L126.232 14.8707H126.161C125.505 13.4254 124.113 12.1834 121.52 12.1834C117.892 12.1834 113.266 14.8707 112.031 21.3801C110.959 27.0282 113.255 30.5768 117.818 30.5768C121.238 30.5768 123.223 28.6842 124.303 27.202H124.373L123.783 30.3033H127.897L132.631 5.40047H127.927V5.39678ZM96.1307 12.4606L95.4778 15.9057H104.533L104.515 16.0092L102.645 17.6615L92.9663 26.7547L92.2911 30.3033H107.397L108.05 26.8582H98.4753L98.4938 26.7547L100.412 25.0322L109.786 15.9057L110.439 12.4606H96.1307ZM77.9827 21.3801C78.7691 17.2475 81.3363 15.5582 83.41 15.5582C85.4838 15.5582 87.4091 17.2475 86.6264 21.3801C85.8399 25.5127 83.2728 27.202 81.199 27.202C79.1215 27.202 77.1962 25.5164 77.9827 21.3801ZM73.0746 21.3801C71.9432 27.3387 75.2337 30.5768 80.5572 30.5768C85.8807 30.5768 90.4029 27.3387 91.5344 21.3801C92.6658 15.4215 89.3753 12.1834 84.0518 12.1834C78.7283 12.1834 74.2061 15.4215 73.0746 21.3801ZM55.0638 12.4606L58.3803 30.3033H63.9116L73.9019 12.4606H69.0978L63.3736 23.4834L62.2199 26.1004H62.116L61.886 23.4834L60.2129 12.4606H55.0638ZM52.5857 6.94927C50.2523 6.12127 48.2193 5.91427 45.6967 5.91427C37.6094 5.91427 31.4884 10.2871 29.9748 18.2455C28.4835 26.0967 32.746 30.5768 40.388 30.5768C44.0867 30.5768 47.9077 29.5788 49.1059 29.2683L51.5358 16.4897H41.6827L40.9631 20.2786H45.9044L44.8101 26.0302C43.6267 26.4442 42.6807 26.5107 41.4676 26.5107C36.6968 26.5107 34.1816 23.3762 35.1573 18.2455C36.1515 13.0114 39.9355 9.83987 44.8435 9.83987C46.8133 9.83987 49.2172 10.1134 51.4876 11.2519L52.5857 6.94927Z" fill="#B9956F" />
@@ -98,7 +101,7 @@ export default function Header() {
 										strokeLinejoin="round"
 									/>
 								</chakra.svg>
-								<Text display="flex" justifyContent="center" alignItems="center" color="rgba{'60, 60, 60'}" position="absolute" top={4} backgroundColor="rgba(202,218,186)" borderRadius={50} width={6} height={6} left={4}>{basket.length}</Text>
+								<Text display="flex" justifyContent="center" alignItems="center" color="rgba{'60, 60, 60'}" position="relative" top={-2} backgroundColor="rgba(202,218,186)" borderRadius={50} width={6} height={6} left={4}>{basket.length}</Text>
 							</Link>
 						</Flex>
 					</Flex>

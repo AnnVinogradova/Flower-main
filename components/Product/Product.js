@@ -1,6 +1,7 @@
-import { Box, Image, Text, Grid, GridItem, Button, Link, H } from '@chakra-ui/react';
+import { Box, Image, Text, Grid, GridItem, Button } from '@chakra-ui/react';
 import { useContext } from 'react';
 import { CustomContext } from '../../context/context';
+import Link from 'next/link'
 
 export default function Product() {
 
@@ -37,7 +38,6 @@ export default function Product() {
 							</Text>
 							<Button type='button'm={"2"} backgroundColor="rgba(0, 85, 78)" color="rgba(235, 235, 235)" onClick={()=> plusBasket(item.id)}>+</Button>
 						</Box>
-						
 						: <Box>
 						<Text>
 							{item.price}₽

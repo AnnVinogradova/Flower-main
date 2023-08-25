@@ -1,6 +1,7 @@
 import React from 'react';
-import { Flex, Box, Image, Link, Text, UnorderedList, ListItem, List, HStack, Icon } from '@chakra-ui/react'
+import { Flex, Box, Image, Text, UnorderedList, ListItem, List, HStack, Icon } from '@chakra-ui/react'
 import { FaInstagram, FaVk, FaTelegram, FaWhatsapp } from 'react-icons/fa'
+import Link from 'next/link'
 
 export default function Footer() {
 	return <>

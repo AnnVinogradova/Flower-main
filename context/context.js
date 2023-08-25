@@ -15,12 +15,14 @@ const Context = (props) => {
 	
 	const [basket, setBasket] = useState([])
 
-	const addBasket = (product) => {
-		setBasket(prev => { return[...prev,
-			product]
-		count: 1
-	})
-	}
+	const addBasket =  (product) => {
+        setBasket(prev => [...prev, {
+            ...product,
+            count: 1
+        }])
+
+
+    }
 
 	const plusBasket = (id) => {
 		setBasket(prev => prev.map(item =>{
@@ -30,6 +32,10 @@ const Context = (props) => {
 			return item
 		}))
 		
+	}
+
+	const delBasket = (id) => {
+		setBasket(prev =>prev.filter(item => item.id !== id))
 	}
 
 	const minusBasket = (id) => {
@@ -46,7 +52,7 @@ const Context = (props) => {
 		)
 	}}
 
-	useEffect(() => {
+    useEffect(() => {
 
         if (localStorage.getItem('basket') !== null) {
             setBasket(JSON.parse(localStorage.getItem('basket')))
@@ -54,11 +60,9 @@ const Context = (props) => {
 
     }, [])
 
-
-    useEffect(() => {
+	useEffect(() => {
         localStorage.setItem('basket', JSON.stringify(basket))
     }, [basket])
-
 
 
 	const changeGender = (value) => {
@@ -103,7 +107,8 @@ const Context = (props) => {
 		basket,
 		addBasket,
 		plusBasket,
-		minusBasket
+		minusBasket,
+		delBasket
 	
 		
 	}
