@@ -1,7 +1,6 @@
 import { chakra, Box, Flex, Input, Link, Text, Heading } from '@chakra-ui/react';
 import { useContext, useState } from 'react';
 import { CustomContext } from '../../context/context';
-import BasketEmpty from '../BasketEmpty/BasketEmpty.js'
 
 export default function Header() {
 
@@ -105,7 +104,6 @@ export default function Header() {
 					</Flex>
 				</Box>
 			</Flex>
-			<BasketEmpty show={show} setShow={setShow}/>
 		</Box>
 	);
 
