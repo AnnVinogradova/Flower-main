@@ -20,6 +20,7 @@ export default function Basket() {
 					<BreadcrumbLink href="cart">Корзина</BreadcrumbLink>
 				</BreadcrumbItem>
 			</Breadcrumb>
+      <Link href="/catalog">Перейти к выбору товара</Link>
 			<Heading mt={30} fontSize={36} color="rgba(3, 69, 59)" mb={30}>Корзина</Heading>
     </Box>
     <Table backgroundColor="rgba(202,218,186)" color="rgba(51, 51, 51)" width={"90%"} >

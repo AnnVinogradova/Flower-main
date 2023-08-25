@@ -1,7 +1,8 @@
 import { Box, Text, Heading, Container } from "@chakra-ui/react";
-
+import HeaderFooter from '../Header/HeaderFooter'
 export default function HeaderMain() {
 return <>
+<HeaderFooter/>
 <Box bgImage="url('/img/Header/banner.png')" height={700}
 bgSize="cover"
 bgPosition="center"
