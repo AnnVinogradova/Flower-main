@@ -12,26 +12,39 @@ const Context = (props) => {
 		data: [],
 		error: ''
 	});
-	const [favorites, setFavorites] = useState([]);
+	
 	const [basket, setBasket] = useState([])
 
 	const addBasket = (product) => {
-		setBasket(prev => [...prev, product])
+		setBasket(prev => { return[...prev,
+			product]
+		count: 1
+	})
 	}
 
-	const setProductForFavorites = (id) => {
-		if (favorites.some(item => item.id === id)) {
-		  setFavorites(prev => {
-			console.log('Удалено из избранного:', id);
-			return prev.filter(item => item.id !== id);
-		  });
+	const plusBasket = (id) => {
+		setBasket(prev => prev.map(item =>{
+			if (item.id === id){
+				return{...item, count: item.count+1}
+			}
+			return item
+		}))
+		
+	}
+
+	const minusBasket = (id) => {
+		let count = basket.find(item => item.id === id).count
+		if(count ===1) {
+			setBasket(prev =>prev.filter(item => item.id !== id))
 		} else {
-		  setFavorites(prev => {
-			console.log('Добавлено в избранное:', id);
-			return [...prev, {id: id}];
-		  });
-		}
-	  }
+		setBasket(prev => prev.map(item =>{
+			if (item.id === id){
+				return{...item, count: item.count-1}
+			}
+			return item
+		})
+		)
+	}}
 
 	const changeGender = (value) => {
 		setGender(value)
@@ -72,9 +85,10 @@ const Context = (props) => {
 		handleShowMore,
 		showMore,
 		displayedProducts,
-		setProductForFavorites,
 		basket,
-		addBasket
+		addBasket,
+		plusBasket,
+		minusBasket
 	
 		
 	}

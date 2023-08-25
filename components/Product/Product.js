@@ -4,7 +4,7 @@ import { CustomContext } from '../../context/context';
 
 export default function Product() {
 
-	const { products, showMore, displayedProducts, handleShowMore, setProductForFavorites, addBasket, basket } = useContext(CustomContext);
+	const { products, showMore, displayedProducts, handleShowMore, minusBasket, addBasket, basket, plusBasket } = useContext(CustomContext);
 
 	if (products.error.length) {
 		return <Text>{products.error.message}</Text>
@@ -16,35 +16,45 @@ export default function Product() {
 			{products.data.slice(0, displayedProducts).map((item) => (
 				<Box key={item.id} width="33%">
 					<GridItem width={310} height={470} backgroundColor="rgba(202,218,186)" textAlign="center">
-						<Box position="relative">
+						<Box position={"relative"}>
 							<Link href={`/card/${item.id}`}>
+							<Box justifyContent="center" alignItems="center" color="rgba{'60, 60, 60'}"  top={-2} backgroundColor="rgba(202,218,186)" borderRadius={50} width={6} height={6} right={-2} position={"absolute"} >
+							{basket.find(product => product.id === item.id)?.count || 0}
+						</Box>
 								<Image src={item.image} alt={item.title} width="100%" height={280} />
 							</Link>
-							<Box onClick={() => setProductForFavorites(item.id)}
-								style={{ position: 'absolute', top: 2, right: 2, cursor: 'pointer' }}
-							>
-								<svg width="21" height="18" viewBox="0 0 21 18" xmlns="http://www.w3.org/2000/svg">
-									<path fill="white" fillRule="evenodd" d="M2.31802 2.31802C4.07538 0.56066 6.92462 0.56066 8.68198 2.31802L10.5 4.13604L12.318 2.31802C14.0754 0.56066 16.9246 0.56066 18.682 2.31802C20.4393 4.07538 20.4393 6.92462 18.682 8.68198L10.5 16.864L2.31802 8.68198C0.56066 6.92462 0.56066 4.07538 2.31802 2.31802Z" stroke="#0F303F" strokeLinecap="round" />
-								</svg>
-
-							</Box>
 						</Box>
+						
 						<Box display="flex" justifyContent="center" flexDirection="column">
 							<Text>{item.title}</Text>
 						</Box>
-						<Box>
-							<Text>{item.price}₽</Text>
-							<Button type={"button"} onClick={() => addBasket(products)} width={290} mx="auto" backgroundColor="rgba(0, 85, 78)" marginTop={5} color="rgba(235, 235, 235)" >Заказать</Button>
+						{
+							basket.findIndex(product=>product.id === item.id) > -1
+							? <Box display={"flex"} justifyContent={"center"} mt={"2"} >
+							<Button type='button'm={"2"} backgroundColor="rgba(0, 85, 78)" color="rgba(235, 235, 235)" onClick={()=> minusBasket(item.id)}>-</Button>
+							<Text mt={"4"}>
+								{item.price}₽
+							</Text>
+							<Button type='button'm={"2"} backgroundColor="rgba(0, 85, 78)" color="rgba(235, 235, 235)" onClick={()=> plusBasket(item.id)}>+</Button>
 						</Box>
+						
+						: <Box>
+						<Text>
+							{item.price}₽
+						</Text>
+						<Button type={"button"} onClick={() => addBasket(item)} width={290} mx="auto" backgroundColor="rgba(0, 85, 78)" marginTop={5} color="rgba(235, 235, 235)" >Заказать</Button>
+					</Box>
+						}		
 					</GridItem>
-
-					{!showMore && displayedProducts < products.data.length && (
-						<Button display="flex" mt={30} borderRadius={4} border="1px solid" color="rgba(3, 69, 59)" onClick={handleShowMore} >
-							Смотреть ещё
-						</Button>
-					)}
 				</Box>
 			))}
+			<Box>
+				{!showMore && displayedProducts < products.data.length && (
+					<Button display="flex" mt={30} borderRadius={4} border="1px solid" color="rgba(3, 69, 59)" onClick={handleShowMore} >
+						Смотреть ещё
+					</Button>
+				)}
+			</Box>
 		</Grid>
 	</>
 }

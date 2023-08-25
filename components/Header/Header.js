@@ -1,4 +1,4 @@
-import { chakra, Box, Flex, Input, Link, Text, Heading, Button } from '@chakra-ui/react';
+import { chakra, Box, Flex, Input, Link, Text, Heading } from '@chakra-ui/react';
 import { useContext, useState } from 'react';
 import { CustomContext } from '../../context/context';
 import BasketEmpty from '../BasketEmpty/BasketEmpty.js'
@@ -65,7 +65,7 @@ export default function Header() {
 									<circle cx="18.5" cy="5.5" r="4.5" fill="#AE8646" />
 								</chakra.svg>
 							</Link>
-							<Link href="/favorites">
+							<Link href="#">
 								<chakra.svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="26"
@@ -83,13 +83,7 @@ export default function Header() {
 									<circle cx="22.5" cy="5.5" r="4.5" fill="#AE8646" />
 								</chakra.svg>
 							</Link>
-							<Link onClick={()=>{
-								if(basket.length){
-									window.location.href = "/basket"
-								} else {
-									setShow(true)
-								}
-							}} position="relative">
+							<Link href = "/basket" position="relative">
 								<chakra.svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="26"
