@@ -1,5 +1,5 @@
 import { useSession, signIn, signOut } from 'next-auth/react';
-import { Box, Text, Button } from '@chakra-ui/react';
+import { Box, Text, Button, Image} from '@chakra-ui/react';
 
 export default function Home() {
 	const { data: session } = useSession();
@@ -9,7 +9,7 @@ export default function Home() {
 		return <>
 			<Box mt={"10"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
 				Вы вошли как {session.user?.email} <br />
-				{session?.user?.image && <img src={session?.user?.image} alt='avatar' width={50} height={50}></img>}
+				{session?.user?.image && <Image src={session?.user?.image} alt='avatar' width={50} height={50}></Image>}
 				{session?.user?.name}
 				<hr></hr>
 				<Button onClick={() => signOut()} width={290} mx="auto" backgroundColor="rgba(0, 85, 78)">Покинуть аккаунт</Button>

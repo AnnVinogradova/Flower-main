@@ -52,7 +52,7 @@ export default function Basket() {
 				</Breadcrumb>
 				<Flex>
 					<Box mt={"10"} position="relative">
-						<Image src={`../${product.image}`} width={"640"} height={487} />
+						<Image src={`../${product.image}`} width={"640"} height={487} alt='Foto'/>
 					</Box>
 			<Box ml={12} mt={"6"}>
 				<Text color="rgba(3, 69, 59, 1)" fontSize="36">
