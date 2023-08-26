@@ -960,5 +960,15 @@
 			"review": [],
 			"gender": "women"
 		}
+	],
+	"users": [
+		{
+			"id": 1,
+			"fullName": "Соболева Варвара Романовна",
+			"username": "Варвара",
+			"email": "anna@gmail.com",
+			"phone": "79032357481",
+			"password": "1122"
+		}
 	]
 }
