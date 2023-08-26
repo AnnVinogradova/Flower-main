@@ -38,6 +38,7 @@ export default function Header() {
 								<Link href="/about">О магазине</Link>
 								<Link href="/delivery">Доставка</Link>
 								<Link href="/payment">Оплата</Link>
+								<Link href="/return">Возврат</Link>
 								<Link href="/catalog">Каталог</Link>
 								<Box display={"flex"} gap={"4"}>
 									<Link href="https://www.instagram.com">
